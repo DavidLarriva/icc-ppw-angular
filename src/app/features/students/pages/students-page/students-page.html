@@ -1,0 +1,20 @@
+<h1>Students Page</h1>
+<p>Selecciona el estudiante para ver su detalle.</p>
+
+<ul>
+    //Esto es como un foreach de python o un foreahc de nose 
+    @for(estudiante of students(); track estudiante.id)
+    {
+        <li>
+            
+            <a [routerLink]="['/students',estudiante.id]"> 
+                {{estudiante.name}}
+            </a>
+        </li>
+
+    }@empty {
+        <li>
+            Listado VACIO
+        </li>
+    }
+</ul>
