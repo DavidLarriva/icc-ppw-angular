@@ -1,8 +1,11 @@
-<h2>Detalle estudiante</h2>
-<section>
-    <h3>INFORMACION</h3>
-    <p>ID recibido por la ruta
-        <strong>{{id}}</strong>
-    </p>
-    <a [routerLink]="['/students']">Volver al estado</a>
+<section class="detail-page">
+  <h1 class="detail-page_title">Detalle del estudiante</h1>
+  
+  <p class="detail-page_id">
+    ID recibido por la ruta: <strong>{{ id }}</strong>
+  </p>
+  
+  <a class="btn-back" routerLink="/students">
+    ← Volver al listado
+  </a>
 </section>

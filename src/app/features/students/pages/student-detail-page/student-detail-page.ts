@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-students-detail-page',
+  selector: 'app-student-detail-page',
+  standalone: true,
   imports: [RouterLink],
-  templateUrl: './students-detail-page.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './student-detail-page.html',
+  styleUrl: './student-detail-page.css'
 })
-export class StudentsDetailPage {
-  //permite leer parametros de la ruta, como el id del estudiante
+export class StudentDetailPage {
   private route = inject(ActivatedRoute);
   readonly id = this.route.snapshot.paramMap.get('id');
 }

@@ -1,0 +1,22 @@
+.detail-page_id {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-left: 4px solid #c3002f;
+  margin-bottom: 2rem;
+}
+
+.btn-back {
+  display: inline-block;
+  text-decoration: none;
+  color: #c3002f;
+  border: 1px solid #c3002f;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  width: fit-content;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-back:hover {
+  background-color: #c3002f;
+  color: white;
+}

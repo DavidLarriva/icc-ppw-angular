@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    font-family: Inter, system-ui, sans-serif;
+    color:black;
+    background: #f5f7fb;
+}/* You can add global style to this file, and also import other style files */
+
+body{
+    margin: 0;
+}
