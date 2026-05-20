@@ -1,11 +1,12 @@
-<section class="detail-page">
-  <h1 class="detail-page_title">Detalle del estudiante</h1>
+<section class="flex flex-col gap-5">
+  <h1 class="text-3xl font-bold tracking-tight text-slate-900">Detalle del estudiante</h1>
   
-  <p class="detail-page_id">
+  <p class="bg-white px-4 py-3 rounded-lg border border-slate-200 border-l-4 border-l-brand text-slate-900">
     ID recibido por la ruta: <strong>{{ id }}</strong>
   </p>
   
-  <a class="btn-back" routerLink="/students">
+  <a class="inline-block w-fit border-2 border-brand text-brand px-5 py-2 rounded-md no-underline transition-colors hover:bg-brand hover:text-white"
+     routerLink="/students">
     ← Volver al listado
   </a>
 </section>
