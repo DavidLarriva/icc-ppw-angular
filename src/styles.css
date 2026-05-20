@@ -1,9 +1,12 @@
-:root{
-    font-family: Inter, system-ui, sans-serif;
-    color:black;
-    background: #f5f7fb;
-}/* You can add global style to this file, and also import other style files */
+@import "tailwindcss";
 
-body{
-    margin: 0;
+@theme {
+  --color-brand: #0f4c81;
+  --color-brand-strong: #0a365c;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
 }
