@@ -1,59 +1,30 @@
-# PpwAngular
+# Portafolio de Prácticas - Frameworks Web (Angular 21)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+**Autor:** David Larriva  
+**Carrera:** Ingeniería en Ciencias de la Computación  
+**Institución:** Universidad Politécnica Salesiana  
 
-## Development server
+---
 
-To start a local development server, run:
+## Práctica 04: Estilos y Layout con TailwindCSS
+**Fecha:** Mayo 2026
 
-```bash
-ng serve
-```
+### Diseños Personalizados con Tailwind (Extras)
+A continuación se presentan 4 distribuciones de layout adicionales exploradas e implementadas utilizando la documentación oficial de TailwindCSS.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+#### 1. Grid Asimétrico (Col-Span)
+Se utilizó la propiedad `col-span-2` dentro de un contenedor `grid-cols-3` para permitir que ciertos elementos abarquen múltiples columnas, rompiendo la simetría tradicional.
+![Grid Asimétrico](./docs/practica-04/extra1-grid-span.png)
 
-## Code scaffolding
+#### 2. Flexbox: Columna Invertida (Reverse)
+Mediante el uso de la clase `flex-col-reverse`, los elementos hijos se renderizan en el orden inverso al que aparecen en el DOM (ideal para chats).
+![Flex Invertido](./docs/practica-04/extra2-flex-reverse.png)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+#### 3. Grid: Flujo por Filas (Template Rows)
+Se implementaron las clases `grid-rows-3` y `grid-flow-col` para obligar al grid a llenarse de arriba hacia abajo primero.
+![Grid por Filas](./docs/practica-04/extra3-grid-rows.png)
 
-```bash
-ng generate component component-name
-```
+#### 4. Flexbox: Alineación Espaciada y Centrada
+Se combinaron las utilidades `items-center` y `justify-between`. Este layout es el estándar para barras de herramientas o tarjetas de usuario.
+![Flex Between](./docs/practica-04/extra4-flex-between.png)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

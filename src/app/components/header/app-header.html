@@ -1,8 +1,10 @@
 <header class="app-header">
-  <span class="app-header_brand">{{ brand() | uppercase }}</span>
-  
+  <span class="app-header-brand">{{ brand() | uppercase }}</span>
+
   <nav class="app-header_nav">
-    <a class="nav-link" routerLink="/" routerLinkActive="nav-link--active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+    <a class="nav-link" routerLink="/" routerLinkActive="nav-link--active">Inicio</a>
     <a class="nav-link" routerLink="/students" routerLinkActive="nav-link--active">Estudiantes</a>
-    <a class="nav-link" routerLink="/layouts" routerLinkActive="nav-link--active">Layouts</a> </nav>
+    <a class="nav-link" routerLink="/layouts" routerLinkActive="nav-link--active">Layouts</a>
+    <a class="nav-link" routerLink="/singup-page" routerLinkActive="nav-link--active">SingupPage</a>
+  </nav>
 </header>
