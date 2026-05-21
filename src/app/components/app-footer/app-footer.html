@@ -1,19 +1,20 @@
-<footer class="footer-container">
-  
-  
-  <h3>{{ companyName | uppercase }}</h3>
-
-  
-  <p>Creado por: {{ authorRole | titlecase }}</p>
-
-  
-  <p>Fecha de actualización: {{ currentDate | date:'fullDate' }}</p>
-
-  
-  <p>Presupuesto estimado: {{ projectCost | currency:'USD' }}</p>
-
-
-  <p>Detalles técnicos del proyecto:</p>
-  <pre>{{ techDetails | json }}</pre>
-
+<footer class="footer sm:footer-horizontal mt-10 border border-base-200 bg-base-200 text-base-content p-10">
+  <nav>
+    <h6 class="footer-title text-sky-700">PPW</h6>
+    <a class="link link-hover">Angular 21</a>
+    <a class="link link-hover">TailwindCSS</a>
+    <a class="link link-hover">DaisyUI</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title text-sky-700">Navegación</h6>
+    <a class="link link-hover" routerLink="/">Inicio</a>
+    <a class="link link-hover" routerLink="/students">Estudiantes</a>
+    <a class="link link-hover" routerLink="/ui-components">Componentes</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title text-sky-700">Curso</h6>
+    <a class="link link-hover">Layouts responsive</a>
+    <a class="link link-hover">Formularios</a>
+    <a class="link link-hover">Servicios HTTP</a>
+  </nav>
 </footer>

@@ -8,7 +8,7 @@
     
     <div class="space-y-2">
       <label for="nombre" class="block text-sm font-medium text-slate-700">Nombre del proyecto</label>
-      <input id="nombre" type="text" formControlName="nombre" placeholder="Mi proyecto increíble" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500" />
+      <input id="nombre" type="text" formControlName="nombre" placeholder="proyecto" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500" />
       @if (formUtils.isValidField(myForm, 'nombre')) {
         <p class="text-xs text-red-600">{{ formUtils.getFieldError(myForm, 'nombre') }}</p>
       }
@@ -17,7 +17,7 @@
     <div class="space-y-2">
       <label class="block text-sm font-medium text-slate-700">Agregar lenguaje de programación</label>
       <div class="flex gap-2">
-        <input type="text" [formControl]="newLenguaje" placeholder="Ej: Python, Java, Go..." (keydown.enter)="onAddLenguaje(); $event.preventDefault()" class="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500" />
+        <input type="text" [formControl]="newLenguaje" placeholder="Ej: Python, Java" (keydown.enter)="onAddLenguaje(); $event.preventDefault()" class="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500" />
         <button type="button" (click)="onAddLenguaje()" [disabled]="newLenguaje.invalid" class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50 cursor-pointer">
           Agregar
         </button>

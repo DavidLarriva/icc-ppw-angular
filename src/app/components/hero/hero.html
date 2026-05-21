@@ -1,21 +1,70 @@
-<section class="hero">
-  <h2>{{ title() | uppercase }}</h2>
-  <p>{{ subtitle() }}</p>
+<section class="min-h-screen flex flex-col justify-center px-margin-mobile md:px-margin-desktop max-w-margin-desktop mx-auto pt-20 bg-[#0a1929] text-[#f1f5f9]">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+    <div class="md:col-start-2 md:col-span-10 lg:col-span-8 flex flex-col items-start gap-12">
+      
+      <h1 class="font-bold text-6xl md:text-8xl text-white leading-tight">
+        {{ title() | uppercase }}
+      </h1>
+      
+      <p class="font-normal text-lg md:text-xl text-[#94a3b8] max-w-2xl">
+        {{ subtitle() }}
+      </p>
 
-  <button type="button" (click)="toggleMode()">Vista: {{ viewMode() }}</button>
+      <div class="flex items-center gap-6">
+        <button 
+          type="button" 
+          (click)="toggleMode()"
+          class="flex items-center gap-3 px-6 py-3 bg-[#e2e8f0] text-[#0a1929] font-semibold rounded-md transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-md">
+          <span class="material-symbols-outlined text-[20px]" data-icon="swap_horiz">swap_horiz</span>
+          Vista: {{ viewMode() }}
+        </button>
 
-  @switch (viewMode()) {
-    @case ('lista') {
-      <ul>
-        @for (item of topics(); track item) {
-          <li>{{ item }}</li>
-        } @empty {
-          <p>No hay temas registrados.</p>
+        <div class="flex gap-4">
+          <a class="w-10 h-10 flex items-center justify-center border border-[#334155]/50 rounded-full text-[#64748b] hover:border-[#22d3ee] hover:text-[#22d3ee] transition-all duration-300" href="#">
+            <span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
+          </a>
+          <a class="w-10 h-10 flex items-center justify-center border border-[#334155]/50 rounded-full text-[#64748b] hover:border-[#22d3ee] hover:text-[#22d3ee] transition-all duration-300" href="#">
+            <span class="material-symbols-outlined text-lg" data-icon="database">database</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full p-8 bg-[#112235]/40 rounded-xl border border-[#334155]/30 backdrop-blur-sm mt-16 shadow-lg">
+        <h3 class="font-semibold text-xl text-white mb-8 border-b border-[#334155]/50 pb-4">Temas Registrados</h3>
+
+        @switch (viewMode()) {
+          
+          @case ('lista') {
+            <ul class="flex flex-col gap-4">
+              @for (item of topics(); track item) {
+                <li class="flex items-center gap-3 text-[#f1f5f9] font-medium group">
+                  <span class="w-2 h-2 rounded-full bg-[#22d3ee]/60 group-hover:bg-[#22d3ee] transition-colors"></span>
+                  {{ item }}
+                </li>
+              } @empty {
+                <p class="text-[#64748b] italic text-base flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[18px]">info</span>
+                  No hay temas registrados.
+                </p>
+              }
+            </ul>
+          }
+          
+          @case ('resumen') {
+            <div class="flex items-center gap-4 p-5 bg-[#112235]/50 rounded-lg border border-[#334155]/20">
+              <span class="material-symbols-outlined text-[#22d3ee] text-4xl" data-icon="analytics">analytics</span>
+              <div>
+                <p class="text-[#94a3b8] text-sm uppercase tracking-wider font-semibold">Total de temas registrados</p>
+                <p class="text-white text-5xl font-bold mt-1">
+                  {{ topics().length }}
+                
+              </div>
+            </div>
+          }
+          
         }
-      </ul>
-    }
-    @case ('resumen') {
-      <p>Total de temas: <strong>{{ topics().length }}</strong></p>
-    }
-  }
+      </div>
+
+    </div>
+  </div>
 </section>

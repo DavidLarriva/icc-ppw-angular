@@ -1,0 +1,47 @@
+<section class="space-y-10 p-6">
+  <header class="space-y-3">
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">UI System</p>
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Catálogo de Componentes</h1>
+    <p class="mt-3 max-w-2xl text-sm text-slate-600">
+      Página de prueba para validar componentes visuales reutilizables.
+    </p>
+  </header>
+
+  <app-gradient-cta-banner
+    title="Construcción visual consistente"
+    description="Componentes reutilizables para acelerar desarrollo. Evita escribir HTML repetitivo."
+    actionLabel="Explorar"
+  />
+
+  <section class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <app-glass-stat-card label="Pantallas" value="12" helper="Módulos con layout base" />
+    <app-glass-stat-card label="Componentes" value="9" helper="Piezas reutilizables activas" />
+    <app-glass-stat-card label="Rutas" value="15" helper="Navegación del proyecto" />
+    <app-glass-stat-card label="UI Score" value="A+" helper="Consistencia visual" />
+  </section>
+
+  <section class="grid gap-4 lg:grid-cols-[2fr_1fr]">
+    <article class="rounded-3xl border border-base-200 bg-base-100 p-6 shadow-sm">
+      <h2 class="text-xl font-black tracking-tight text-slate-900">Distribución Asimétrica</h2>
+      <p class="mt-2 text-sm text-slate-600">
+        En desktop, esta zona usa 2 columnas desiguales para contenido principal y lateral.
+      </p>
+      
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-2xl border border-base-200 bg-sky-50 p-4">
+          <p class="text-sm font-bold text-slate-800">Bloque 1</p>
+          <p class="mt-1 text-xs text-slate-600">Resumen de actividad</p>
+        </div>
+        <div class="rounded-2xl border border-base-200 bg-cyan-50 p-4">
+          <p class="text-sm font-bold text-slate-800">Bloque 2</p>
+          <p class="mt-1 text-xs text-slate-600">Pruebas de comportamiento</p>
+        </div>
+      </div>
+    </article>
+
+    <app-feature-chip-list
+      [chips]="quickChips"
+      title="UI Features"
+    />
+  </section>
+</section>
