@@ -47,3 +47,52 @@ Se implementó un validador personalizado (`passwordMatchValidator`) para compro
 Además, en el método `onSubmit()` se utilizó `form.markAllAsTouched()` para mostrar todos los errores del formulario cuando existan campos inválidos.
 
 ![Formulario con Todos los Errores](./docs/practica-05-a/formulario-todos-errores.png)
+
+## Práctica 05-B: Reutilización de Código con FormUtils 
+**Fecha:** Mayo 2026
+
+### Objetivo de la Práctica
+Mejorar el manejo de errores en formularios reactivos mediante una clase auxiliar (`FormUtils`) que centraliza las validaciones y reduce código repetido en el HTML.
+
+### Funcionalidades Implementadas
+
+#### 1. Estado Inicial del Formulario
+El formulario de perfil inicia en estado `INVALID` y el botón de envío permanece deshabilitado hasta completar correctamente los campos requeridos.
+
+![Estado Inicial del Perfil](./docs/practica-05-b/perfil-estado-inicial.png)
+
+#### 2. Manejo Dinámico de Errores
+Con los métodos `FormUtils.isValidField()` y `FormUtils.getFieldError()`, se muestran automáticamente mensajes de error según la validación activa (`required`, `minlength`, `min` o `email`).
+
+![Todos los Errores de Perfil](./docs/practica-05-b/perfil-todos-errores.png)
+---
+
+## Práctica 05-C: Formularios Dinámicos y Controles Especiales
+**Fecha:** Mayo 2026
+
+### Objetivo de la Práctica
+Construir una interfaz compleja de configuración que combine la manipulación dinámica de arreglos de controles (`FormArray`) con el manejo de múltiples tipos de inputs nativos y estilizados (Radio buttons, Switches y Checkboxes obligatorios), manteniendo una arquitectura unificada de validación con `FormUtils`.
+
+### Estados del Formulario y Evidencia
+
+#### 1. Formulario Inicial y Valores por Defecto
+Carga inicial de la página `/project-config`. Muestra la renderización de los valores predeterminados cargados en el modelo reactivo (como los lenguajes iniciales y el estado del switch), iniciando en estado `INVALID` debido a las restricciones obligatorias pendientes.
+
+![Estado Inicial](./docs/practica-05-c/proyecto-inicial.png)
+
+#### 2. Disparo de Alertas Globales de Validación
+Vista del formulario tras forzar el submit con campos vacíos o sin cumplir los mínimos establecidos. Se aprecia el funcionamiento heredado de `FormUtils` para capturar errores de longitud mínima en la colección de elementos y la obligatoriedad del checkbox del contrato (`requiredTrue`).
+
+![Formulario con Errores](./docs/practica-05-c/proyecto-errores.png)
+
+#### 3. Estructura de Datos Válida e Inyección Dinámica
+Formulario completamente diligenciado de forma correcta tras agregar nuevos elementos a la colección y marcar las casillas correspondientes, limpiando por completo los hilos de error del DOM.
+
+![Formulario Válido](./docs/practica-05-c/proyecto-valido.png)
+
+#### 4. Persistencia e Impresión del Modelo de Datos
+Captura del log de desarrollo que demuestra la salida estructurada del objeto `myForm.value` en un formato JSON limpio al despachar con éxito el evento `(ngSubmit)`.
+
+![Salida en Consola](./docs/practica-05-c/proyecto-consola.png)
+
+---

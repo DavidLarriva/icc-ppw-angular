@@ -1,0 +1,89 @@
+<section class="max-w-3xl mx-auto space-y-6 p-6">
+  <header class="space-y-2">
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">Configuración</p>
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900">Configurar Proyecto</h1>
+  </header>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    
+    <div class="space-y-2">
+      <label for="nombre" class="block text-sm font-medium text-slate-700">Nombre del proyecto</label>
+      <input id="nombre" type="text" formControlName="nombre" placeholder="Mi proyecto increíble" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500" />
+      @if (formUtils.isValidField(myForm, 'nombre')) {
+        <p class="text-xs text-red-600">{{ formUtils.getFieldError(myForm, 'nombre') }}</p>
+      }
+    </div>
+
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-slate-700">Agregar lenguaje de programación</label>
+      <div class="flex gap-2">
+        <input type="text" [formControl]="newLenguaje" placeholder="Ej: Python, Java, Go..." (keydown.enter)="onAddLenguaje(); $event.preventDefault()" class="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500" />
+        <button type="button" (click)="onAddLenguaje()" [disabled]="newLenguaje.invalid" class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50 cursor-pointer">
+          Agregar
+        </button>
+      </div>
+    </div>
+
+    <div class="space-y-3" formArrayName="lenguajes">
+      <label class="block text-sm font-medium text-slate-700">Lenguajes del proyecto (mínimo 2)</label>
+      
+      @for (control of lenguajes.controls; track control; let i = $index) {
+        <div class="space-y-1">
+          <div class="flex gap-2 items-start">
+            <input [formControlName]="i" class="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500" />
+            <button type="button" (click)="onDeleteLenguaje(i)" class="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white cursor-pointer">
+              Eliminar
+            </button>
+          </div>
+          @if (formUtils.isValidFieldInArray(lenguajes, i)) {
+            <p class="text-xs text-red-600">{{ formUtils.getFieldErrorInArray(lenguajes, i) }}</p>
+          }
+        </div>
+      }
+      
+      @if (formUtils.isValidField(myForm, 'lenguajes')) {
+        <p class="text-xs text-red-600">El proyecto debe registrar al menos 2 lenguajes.</p>
+      }
+    </div>
+
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-slate-700">Tipo de proyecto</label>
+      <div class="flex gap-4">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" value="frontend" formControlName="tipo" class="h-4 w-4 text-sky-600 focus:ring-sky-500" />
+          <span class="text-sm text-slate-700">Frontend</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" value="backend" formControlName="tipo" class="h-4 w-4 text-sky-600 focus:ring-sky-500" />
+          <span class="text-sm text-slate-700">Backend</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="radio" value="fullstack" formControlName="tipo" class="h-4 w-4 text-sky-600 focus:ring-sky-500" />
+          <span class="text-sm text-slate-700">Fullstack</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <label class="relative inline-flex items-center cursor-pointer select-none">
+        <input type="checkbox" formControlName="notificaciones" class="sr-only peer" />
+        <div class="w-11 h-6 bg-slate-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-600"></div>
+        <span class="ml-3 text-sm text-slate-700">Recibir notificaciones del proyecto</span>
+      </label>
+    </div>
+
+    <div class="space-y-2">
+      <label class="flex items-start gap-2 cursor-pointer select-none">
+        <input type="checkbox" formControlName="terminosAceptados" class="mt-0.5 h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500" />
+        <span class="text-sm text-slate-700">Acepto los términos y condiciones del proyecto</span>
+      </label>
+      @if (formUtils.isValidField(myForm, 'terminosAceptados')) {
+        <p class="text-xs text-red-600">{{ formUtils.getFieldError(myForm, 'terminosAceptados') }}</p>
+      }
+    </div>
+
+    <button type="submit" class="w-full rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50 cursor-pointer">
+      Guardar configuración
+    </button>
+  </form>
+</section>
